@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin"
+    android:background="?android:attr/colorBackground">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gázóra Leolvasás"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginBottom="@dimen/spacing_large"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_normal"
+        android:background="@drawable/card_background"
+        android:layout_marginBottom="@dimen/spacing_large">
+
+        <EditText
+            android:id="@+id/editTextMeterReading"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_field_height"
+            android:hint="Adja meg az óraállást"
+            android:inputType="number"
+            android:textSize="@dimen/normal_text_size"
+            android:background="@drawable/edit_text_background"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:layout_marginBottom="@dimen/spacing_normal"/>
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Leolvasás dátuma"
+            android:textSize="@dimen/title_text_size"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="@dimen/spacing_small"/>
+            
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:theme="@style/DatePickerStyle"
+            android:layout_marginBottom="@dimen/spacing_small"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSubmitReading"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="Óraállás Rögzítése"
+        android:textSize="@dimen/normal_text_size"
+        android:background="@color/primary"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:layout_marginBottom="@dimen/spacing_normal"/>
+
+    <Button
+        android:id="@+id/buttonViewHistory"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="Előzmények Megtekintése"
+        android:textSize="@dimen/normal_text_size"
+        android:background="@color/secondary"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:layout_marginBottom="@dimen/spacing_large"/>
+        
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:text="Kijelentkezés"
+        android:textSize="@dimen/normal_text_size"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/text_primary"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/spacing_normal"/>
+
+</LinearLayout> 

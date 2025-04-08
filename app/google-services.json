@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "51354930436",
+    "project_id": "gasmeter-a23c0",
+    "storage_bucket": "gasmeter-a23c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51354930436:android:b1be1f905399bd5fdc5451",
+        "android_client_info": {
+          "package_name": "com.example.mobilprojekt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPrM8HZWEkCRFgtk7iVqO78raMW9z7N-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
