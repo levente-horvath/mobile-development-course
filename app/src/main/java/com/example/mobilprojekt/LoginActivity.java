@@ -3,6 +3,7 @@ package com.example.mobilprojekt;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,9 +58,20 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            navigateToMainActivity();
+        try {
+            Log.d("LoginActivity", "onStart: Checking user login state");
+            // Force auth instance refresh
+            mAuth = FirebaseAuth.getInstance();
+            
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if (currentUser != null) {
+                Log.d("LoginActivity", "onStart: User is logged in: " + currentUser.getUid());
+                navigateToMainActivity();
+            } else {
+                Log.d("LoginActivity", "onStart: No user is logged in");
+            }
+        } catch (Exception e) {
+            Log.e("LoginActivity", "Error checking login state: " + e.getMessage());
         }
     }
     
@@ -101,9 +113,15 @@ public class LoginActivity extends AppCompatActivity {
     }
     
     private void navigateToMainActivity() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        try {
+            Log.d("LoginActivity", "Navigating to GasMeterActivity");
+            Intent intent = new Intent(LoginActivity.this, GasMeterActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+            Log.e("LoginActivity", "Error navigating to main screen: " + e.getMessage());
+            Toast.makeText(this, "Hiba történt a főképernyő betöltése közben", Toast.LENGTH_SHORT).show();
+        }
     }
 } 

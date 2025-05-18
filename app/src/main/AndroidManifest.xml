@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -33,12 +41,32 @@
         <activity
             android:name=".HistoryActivity"
             android:exported="false" />
-            
+        
+        <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.Mobilprojekt" />
-            
+         
+        <!-- Receiver for scheduled reminders -->
+        <receiver
+            android:name=".NotificationReceiver"
+            android:exported="false" />
+
+        <!-- WorkManager Initialization Provider -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
     </application>
 
 </manifest>
